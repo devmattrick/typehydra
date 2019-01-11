@@ -1,0 +1,15 @@
+# Node files
+node_modules/
+
+# Yarn files
+yarn-debug.log*
+yarn-error.log*
+
+# NPM files
+npm-debug.log*
+package-lock.json
+npm-shrinkwrap.json
+
+# Compiled files
+dist/
+docs/
