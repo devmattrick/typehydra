@@ -25,10 +25,10 @@ a major version bump will also occur.
 Please refer to the table below for recommended typehydra versions for your
 oryOS version:
 
-| *`oryOS` version* | *`typehydra` min version* | *`typehydra` max version* |
-|-------------------|---------------------------|---------------------------|
-| oryOS.10          | 1.0.0-alpha.1             | latest                    |
-| >oryOS.10         | _Not supported_           | _Not supported_           |
+| **`oryOS` version** | **`typehydra` min version** | **`typehydra` max version** |
+|---------------------|-----------------------------|-----------------------------|
+| oryOS.10            | 1.0.0-alpha.1               | latest                      |
+| >oryOS.10           | _Not supported_             | _Not supported_             |
 
 _Note: typehydra may be somewhat or completely compatible with other versions of
 oryOS, but its is highly recommended to use the matching versions to avoid
