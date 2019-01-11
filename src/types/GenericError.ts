@@ -11,16 +11,16 @@ export default interface GenericError {
   /**
    * Code represents the error status code (404, 403, 401, ...).
    */
-  errorCode?: number;
+  error_code?: number;
 
   /**
    * Debug contains debug information. This is usually not available and has to
    * be enabled.
    */
-  errorDebug?: string;
+  error_debug?: string;
 
   /**
    * Hint contains further information on the nature of the error.
    */
-  errorHint?: string;
+  error_hint?: string;
 }

@@ -9,7 +9,6 @@ import ConsentRequest from "./types/ConsentRequest";
 import EmptyResponse from "./types/EmptyResponse";
 /* tslint:disable-next-line */
 import FlushInactiveOAuth2TokensRequest from "./types/FlushInactiveOAuth2TokensRequest";
-import GenericError from "./types/GenericError";
 import HealthStatus from "./types/HealthStatus";
 import JSONWebKey from "./types/JSONWebKey";
 import JSONWebKeySet from "./types/JSONWebKeySet";

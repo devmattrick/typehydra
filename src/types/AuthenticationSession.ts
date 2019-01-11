@@ -5,7 +5,7 @@ export default interface AuthenticationSession {
   /**
    *
    */
-  authenticatedAt?: Date;
+  AuthenticatedAt?: Date;
 
   /**
    *
@@ -15,5 +15,5 @@ export default interface AuthenticationSession {
   /**
    *
    */
-  subject?: string;
+  Subject?: string;
 }

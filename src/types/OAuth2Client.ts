@@ -12,7 +12,7 @@ export default interface OAuth2Client {
    * appended to the server's CORS origin configuration. Be aware that
    * environment variable `CORS_ENABLED` MUST be set to `true` for this to work.
    */
-  allowedCorsOrigins?: string[];
+  allowed_cors_origins?: string[];
 
   /**
    * Audience is a whitelist defining the audiences this client is allowed to
@@ -25,13 +25,13 @@ export default interface OAuth2Client {
   /**
    * ClientID  is the id for this client.
    */
-  clientId?: string;
+  client_id?: string;
 
   /**
    * Name is the human-readable string name of the client to be presented to the
    * end-user during authorization.
    */
-  clientName?: string;
+  client_name?: string;
 
   /**
    * Secret is the client's secret. The secret will be included in the create
@@ -39,7 +39,7 @@ export default interface OAuth2Client {
    * BCrypt so it is impossible to recover it. Tell your users that they need
    * to write the secret down as it will not be made available again.
    */
-  clientSecret?: string;
+  client_secret?: string;
 
   /**
    * SecretExpiresAt is an integer holding the time at which the client secret
@@ -47,14 +47,14 @@ export default interface OAuth2Client {
    * number of seconds from 1970-01-01T00:00:00Z as measured in UTC until the
    * date/time of expiration.
    */
-  clientSecretExpiresAt?: number;
+  client_secret_expires_at?: number;
 
   /**
    * ClientURI is an URL string of a web page providing information about the
    * client. If present, the server SHOULD display this URL to the end-user in a
    * clickable fashion.
    */
-  clientUri?: string;
+  client_uri?: string;
 
   /**
    * Contacts is a array of strings representing ways to contact people
@@ -65,7 +65,7 @@ export default interface OAuth2Client {
   /**
    * GrantTypes is an array of grant types the client is allowed to use.
    */
-  grantTypes?: string[];
+  grant_types?: string[];
 
   /**
    *
@@ -86,12 +86,12 @@ export default interface OAuth2Client {
    * When used, the bare key values MUST still be present and MUST match those
    * in the certificate.
    */
-  jwksUri?: string;
+  jwks_uri?: string;
 
   /**
    * LogoURI is an URL string that references a logo for the client.
    */
-  logoUri?: string;
+  logo_uri?: string;
 
   /**
    * Owner is a string identifying the owner of the OAuth 2.0 Client.
@@ -103,20 +103,20 @@ export default interface OAuth2Client {
    * document that describes how the deployment organization collects, uses,
    * retains, and discloses personal data.
    */
-  policyUri?: string;
+  policy_uri?: string;
 
   /**
    * RedirectURIs is an array of allowed redirect urls for the client, for
    * example http://mydomain/oauth/callback.
    */
-  redirectUris?: string[];
+  redirect_uris?: string[];
 
   /**
    * JWS [JWS] alg algorithm [JWA] that MUST be used for signing Request Objects
    * sent to the OP. All Request Objects from this Client MUST be rejected, if
    * not signed with this algorithm.
    */
-  requestObjectSigningAlg?: string;
+  request_object_signing_alg?: string;
 
   /**
    * Array of request_uri values that are pre-registered by the RP for use at
@@ -125,13 +125,13 @@ export default interface OAuth2Client {
    * require that request_uri values used be pre-registered with the
    * require_request_uri_registration discovery parameter.
    */
-  requestUris?: string[];
+  request_uris?: string[];
 
   /**
    * ResponseTypes is an array of the OAuth 2.0 response type strings that the
    * client can use at the authorization endpoint.
    */
-  responseTypes?: string[];
+  response_types?: string[];
 
   /**
    * Scope is a string containing a space-separated list of scope values (as
@@ -145,7 +145,7 @@ export default interface OAuth2Client {
    * Identifiers by the OP. The URL references a file with a single JSON array
    * of redirect_uri values.
    */
-  sectorIdentifierUri?: string;
+  sector_identifier_uri?: string;
 
   /**
    * SubjectType requested for responses to this Client. The
@@ -153,13 +153,13 @@ export default interface OAuth2Client {
    * supported subject_type values for this server. Valid types include
    * `pairwise` and `public`.
    */
-  subjectType?: string;
+  subject_type?: string;
 
   /**
    * Requested Client Authentication method for the Token Endpoint. The options
    * are client_secret_post, client_secret_basic, private_key_jwt, and none.
    */
-  tokenEndpointAuthMethod?: string;
+  token_endpoint_auth_method?: string;
 
   /**
    * TermsOfServiceURI is a URL string that points to a human-readable terms of
@@ -167,7 +167,7 @@ export default interface OAuth2Client {
    * between the end-user and the client that the end-user accepts when
    * authorizing the client.
    */
-  tosUri?: string;
+  tos_uri?: string;
 
   /**
    * JWS alg algorithm [JWA] REQUIRED for signing UserInfo Responses. If this is
@@ -175,5 +175,5 @@ export default interface OAuth2Client {
    * The default, if omitted, is for the UserInfo Response to return the Claims
    * as a UTF-8 encoded JSON object using the application/json content-type.
    */
-  userinfoSignedResponseAlg?: string;
+  userinfo_signed_response_alg?: string;
 }

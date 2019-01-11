@@ -27,14 +27,14 @@ export default interface UserInfoResponse {
    * address is verified is context-specific, and dependent upon the trust
    * framework or contractual agreements within which the parties are operating.
    */
-  emailVerified?: boolean;
+  email_verified?: boolean;
 
   /**
    * Surname(s) or last name(s) of the End-User. Note that in some cultures,
    * people can have multiple family names or no family name; all can be
    * present, with the names being separated by space characters.
    */
-  familyName?: string;
+  family_name?: string;
 
   /**
    * End-User's gender. Values defined by this specification are female and
@@ -48,7 +48,7 @@ export default interface UserInfoResponse {
    * people can have multiple given names; all can be present, with the names
    * being separated by space characters.
    */
-  givenName?: string;
+  given_name?: string;
 
   /**
    * End-User's locale, represented as a BCP47 [RFC5646] language tag. This is
@@ -67,7 +67,7 @@ export default interface UserInfoResponse {
    * by space characters. Also note that in some cultures, middle names are not
    * used.
    */
-  middleName?: string;
+  middle_name?: string;
 
   /**
    * End-User's full name in displayable form including all name parts, possibly
@@ -90,7 +90,7 @@ export default interface UserInfoResponse {
    * extension be represented using the RFC 3966 [RFC3966] extension syntax, for
    * example, +1 (604) 555-1234;ext=5678.
    */
-  phoneNumber?: string;
+  phone_number?: string;
 
   /**
    * True if the End-User's phone number has been verified; otherwise false.
@@ -102,7 +102,7 @@ export default interface UserInfoResponse {
    * the phone_number Claim MUST be in E.164 format and any extensions MUST be
    * represented in RFC 3966 format.
    */
-  phoneNumberVerified?: boolean;
+  phone_number_verified?: boolean;
 
   /**
    * URL of the End-User's profile picture. This URL MUST refer to an image file
@@ -118,7 +118,7 @@ export default interface UserInfoResponse {
    * the RP, such as janedoe or j.doe. This value MAY be any valid JSON string
    * including special characters such as @, /, or whitespace.
    */
-  preferredUsername?: string;
+  preferred_username?: string;
 
   /**
    * URL of the End-User's profile page. The contents of this Web page SHOULD be
@@ -136,7 +136,7 @@ export default interface UserInfoResponse {
    * number representing the number of seconds from 1970-01-01T0:0:0Z as
    * measured in UTC until the date/time.
    */
-  updatedAt?: number;
+  updated_at?: number;
 
   /**
    * URL of the End-User's Web page or blog. This Web page SHOULD contain

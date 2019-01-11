@@ -29,7 +29,7 @@ export default interface AcceptLoginRequest {
    * unique value).  If you fail to compute the proper value, then
    * authentication processes which have id_token_hint set might fail.
    */
-  forceSubjectIdentifier?: string;
+  force_subject_identifier?: string;
 
   /**
    * Remember, if set to true, tells ORY Hydra to remember this user by telling
@@ -43,7 +43,7 @@ export default interface AcceptLoginRequest {
    * RememberFor sets how long the authentication should be remembered for in
    * seconds. If set to `0`, the authorization will be remembered indefinitely.
    */
-  rememberFor?: number;
+  remember_for?: number;
 
   /**
    * Subject is the user ID of the end-user that authenticated.

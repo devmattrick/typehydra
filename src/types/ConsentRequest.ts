@@ -28,19 +28,19 @@ export default interface ConsentRequest {
    * can be used to associate a login and consent request in the login & consent
    * app.
    */
-  loginChallenge?: string;
+  login_challenge?: string;
 
   /**
    * LoginSessionID is the authentication session ID. It is set if the browser
    * had a valid authentication session at ORY Hydra during the login flow. It
    * can be used to associate consecutive login requests by a certain user.
    */
-  loginSessionId?: string;
+  login_session_id?: string;
 
   /**
    *
    */
-  oidcContext?: OpenIDConnectContext;
+  oidc_context?: OpenIDConnectContext;
 
   /**
    * RequestURL is the original OAuth 2.0 Authorization URL requested by the
@@ -48,19 +48,19 @@ export default interface ConsentRequest {
    * Code or OAuth 2.0 Implicit flow. This URL is typically not needed, but
    * might come in handy if you want to deal with additional request parameters.
    */
-  requestUrl?: string;
+  request_url?: string;
 
   /**
    * RequestedScope contains the access token audience as requested by the OAuth
    * 2.0 Client.
    */
-  requestedAccessTokenAudience?: string[];
+  requested_access_token_audience?: string[];
 
   /**
    * RequestedScope contains the OAuth 2.0 Scope requested by the OAuth 2.0
    * Client.
    */
-  requestedScope?: string[];
+  requested_scope?: string[];
 
   /**
    * Skip, if true, implies that the client has requested the same scopes from

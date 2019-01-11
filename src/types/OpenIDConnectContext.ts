@@ -15,7 +15,7 @@ export default interface OpenIDConnectContext {
    * Claim Value, as specified in Section 2. The acr Claim is requested as a
    * Voluntary Claim by this parameter.
    */
-  acrValues?: string[];
+  acr_values?: string[];
 
   /**
    * Display is a string value that specifies how the Authorization Server
@@ -41,7 +41,7 @@ export default interface OpenIDConnectContext {
    * Authorization Server being passed as a hint about the End-User's current or
    * past authenticated session with the Client.
    */
-  idTokenHintClaims?: { [key: string]: any; };
+  id_token_hint_claims?: { [key: string]: any; };
   /**
    * LoginHint hints about the login identifier the End-User might use to log in
    * (if necessary). This hint can be used by an RP if it first asks the
@@ -50,7 +50,7 @@ export default interface OpenIDConnectContext {
    * value MAY also be a phone number in the format specified for the phone
    * number Claim. The use of this parameter is optional.
    */
-  loginHint?: string;
+  login_hint?: string;
 
   /**
    * UILocales is the End-User'id preferred languages and scripts for the user
@@ -61,5 +61,5 @@ export default interface OpenIDConnectContext {
    * region designation). An error SHOULD NOT result if some or all of the
    * requested locales are not supported by the OpenID Provider.
    */
-  uiLocales?: string[];
+  ui_locales?: string[];
 }

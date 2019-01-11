@@ -4,17 +4,18 @@ import ConsentRequestSession from "./ConsentRequestSession";
  *
  */
 export default interface AcceptConsentRequest {
+
   /**
    * GrantedAudience sets the audience the user authorized the client to use.
    * Should be a subset of `requested_access_token_audience`.
    */
-  grantAccessTokenAudience?: string[];
+  grant_access_token_audience?: string[];
 
   /**
    * GrantScope sets the scope the user authorized the client to use. Should be
    * a subset of `requested_scope`.
    */
-  grantScope?: string[];
+  grant_scope?: string[];
 
   /**
    * Remember, if set to true, tells ORY Hydra to remember this consent
@@ -28,7 +29,7 @@ export default interface AcceptConsentRequest {
    * for in seconds. If set to `0`, the authorization will be remembered
    * indefinitely.
    */
-  rememberFor?: number;
+  remember_for?: number;
 
   /**
    *

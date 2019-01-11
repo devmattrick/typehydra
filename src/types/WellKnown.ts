@@ -6,32 +6,32 @@ export default interface WellKnown {
   /**
    * URL of the OP's OAuth 2.0 Authorization Endpoint.
    */
-  authorizationEndpoint: string;
+  authorization_endpoint: string;
 
   /**
    * Boolean value specifying whether the OP supports use of the claims
    * parameter, with true indicating support.
    */
-  claimsParameterSupported?: boolean;
+  claims_parameter_supported?: boolean;
 
   /**
    * JSON array containing a list of the Claim Names of the Claims that the
    * OpenID Provider MAY be able to supply values for. Note that for privacy or
    * other reasons, this might not be an exhaustive list.
    */
-  claimsSupported?: string[];
+  claims_supported?: string[];
 
   /**
    * JSON array containing a list of the OAuth 2.0 Grant Type values that this
    * OP supports.
    */
-  grantTypesSupported?: string[];
+  grant_types_supported?: string[];
 
   /**
    * JSON array containing a list of the JWS signing algorithms (alg values)
    * supported by the OP for the ID Token to encode the Claims in a JWT.
    */
-  idTokenSigningAlgValuesSupported: string[];
+  id_token_signing_alg_values_supported: string[];
 
   /**
    * URL using the https scheme with no query or fragment component that the OP
@@ -55,43 +55,43 @@ export default interface WellKnown {
    * When used, the bare key values MUST still be present and MUST match those
    * in the certificate.
    */
-  jwksUri: string;
+  jwks_uri: string;
 
   /**
    * URL of the OP's Dynamic Client Registration Endpoint.
    */
-  registrationEndpoint?: string;
+  registration_endpoint?: string;
 
   /**
    * Boolean value specifying whether the OP supports use of the request
    * parameter, with true indicating support.
    */
-  requestParameterSupported?: boolean;
+  request_parameter_supported?: boolean;
 
   /**
    * Boolean value specifying whether the OP supports use of the request_uri
    * parameter, with true indicating support.
    */
-  requestUriParameterSupported?: boolean;
+  request_uri_parameter_supported?: boolean;
 
   /**
    * Boolean value specifying whether the OP requires any request_uri values
    * used to be pre-registered using the request_uris registration parameter.
    */
-  requireRequestUriRegistration?: boolean;
+  require_request_uri_registration?: boolean;
 
   /**
    * JSON array containing a list of the OAuth 2.0 response_mode values that
    * this OP supports.
    */
-  responseModesSupported?: string[];
+  response_modes_supported?: string[];
 
   /**
    * JSON array containing a list of the OAuth 2.0 response_type values that
    * this OP supports. Dynamic OpenID Providers MUST support the code, id_token,
    * and the token id_token Response Type values.
    */
-  responseTypesSupported: string[];
+  response_types_supported: string[];
 
   /**
    * SON array containing a list of the OAuth 2.0 [RFC6749] scope values that
@@ -99,40 +99,40 @@ export default interface WellKnown {
    * Servers MAY choose not to advertise some supported scope values even when
    * this parameter is used
    */
-  scopesSupported?: string[];
+  scopes_supported?: string[];
 
   /**
    * JSON array containing a list of the Subject Identifier types that this OP
    * supports. Valid types include pairwise and public.
    */
-  subjectTypesSupported: string[];
+  subject_types_supported: string[];
 
   /**
    * URL of the OP's OAuth 2.0 Token Endpoint
    * @type {string}
    * @memberof WellKnown
    */
-  tokenEndpoint: string;
+  token_endpoint: string;
   /**
    * JSON array containing a list of Client Authentication methods supported by
    * this Token Endpoint. The options are client_secret_post, client_secret
    * basic, client_secret_jwt, and private_key_jwt, as described in Section 9 of
    * OpenID Connect Core 1.0
    */
-  tokenEndpointAuthMethodsSupported?: string[];
+  token_endpoint_auth_methods_supported?: string[];
 
   /**
    * URL of the OP's UserInfo Endpoint.
    * @type {string}
    * @memberof WellKnown
    */
-  userinfoEndpoint?: string;
+  userinfo_endpoint?: string;
 
   /**
    * JSON array containing a list of the JWS [JWS] signing algorithms
    * (alg values) [JWA] supported by the UserInfo Endpoint to encode the Claims
    * in a JWT [JWT].
    */
-  userinfoSigningAlgValuesSupported?: string[];
+  userinfo_signing_alg_values_supported?: string[];
 
 }

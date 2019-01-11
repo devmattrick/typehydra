@@ -22,7 +22,7 @@ export default interface OAuth2TokenIntrospection {
    * ClientID is aclient identifier for the OAuth 2.0 client that requested this
    * token.
    */
-  clientId?: string;
+  client_id?: string;
 
   /**
    * Expires at is an integer timestamp, measured in the number of seconds since
@@ -57,7 +57,7 @@ export default interface OAuth2TokenIntrospection {
    * \"pairwise\" during authorization. It is the `sub` value of the ID Token
    * that was issued.
    */
-  obfuscatedSubject?: string;
+  obfuscated_subject?: string;
 
   /**
    * Scope is a JSON string containing a space-separated list of scopes
@@ -76,7 +76,7 @@ export default interface OAuth2TokenIntrospection {
    * TokenType is the introspected token's type, for example `access_token` or
    * `refresh_token`.
    */
-  tokenType?: string;
+  token_type?: string;
 
   /**
    * Username is a human-readable identifier for the resource owner who

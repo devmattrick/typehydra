@@ -10,12 +10,12 @@ export default interface ConsentRequestSession {
    * is usually fine. But if third parties can access that endpoint as well,
    * sensitive data from the session might be exposed to them. Use with care!
    */
-  accessToken?: { [key: string]: any; };
+  access_token?: { [key: string]: any; };
 
   /**
    * IDToken sets session data for the OpenID Connect ID token. Keep in mind
    * that the session'id payloads are readable by anyone that has access to the
    * ID Challenge. Use with care!
    */
-  idToken?: { [key: string]: any; };
+  id_token?: { [key: string]: any; };
 }

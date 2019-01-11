@@ -11,20 +11,20 @@ export default interface RejectRequest {
   /**
    *
    */
-  errorDebug?: string;
+  error_debug?: string;
 
   /**
    *
    */
-  errorDescription?: string;
+  error_description?: string;
 
   /**
    *
    */
-  errorHint?: string;
+  error_hint?: string;
 
   /**
    *
    */
-  statusCode?: number;
+  status_code?: number;
 }
