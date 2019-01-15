@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+import axios from "axios";
 import urljoin = require("url-join");
 
 import { URLSearchParams } from "url";
@@ -32,8 +32,16 @@ export default class HydraClient {
     return this.uri;
   }
 
-  public async getClients(): Promise<OAuth2Client[]> {
-    return this.get<OAuth2Client[]>("/clients");
+  public async getClients(
+    limit?: number,
+    offset?: number
+  ): Promise<OAuth2Client[]> {
+    const limitString = limit ? `?limit=${limit}` : "";
+    const offsetString = offset ? `?offset=${offset}` : "";
+
+    return this.get<OAuth2Client[]>(
+      urljoin("/clients", limitString, offsetString),
+    );
   }
 
   public async createClient(client: OAuth2Client): Promise<OAuth2Client> {
@@ -117,7 +125,7 @@ export default class HydraClient {
 
   public async rejectConsentRequest(
     challenge: string,
-    body: AcceptConsentRequest,
+    body: RejectRequest,
   ): Promise<CompletedRequest> {
     return this.put<CompletedRequest>(
       `/oauth2/auth/requests/consent/${challenge}/reject`,
@@ -153,8 +161,8 @@ export default class HydraClient {
 
   public async getConsentSessions(
     user: string,
-  ): Promise<[PreviousConsentSession]> {
-    return this.get<[PreviousConsentSession]>(
+  ): Promise<PreviousConsentSession[]> {
+    return this.get<PreviousConsentSession[]>(
       `/oauth2/auth/sessions/consent/${user}`,
     );
   }
@@ -186,7 +194,7 @@ export default class HydraClient {
     token: string,
     scope?: string,
   ): Promise<OAuth2TokenIntrospection> {
-    // This endpoint uses application/x-www-form-urlencoded isntead of
+    // This endpoint uses application/x-www-form-urlencoded instead of
     // application/json, so we need to handle it differently.
 
     const body = new URLSearchParams();
@@ -196,71 +204,124 @@ export default class HydraClient {
       body.append("scope", scope);
     }
 
-    return fetch(this.joinPath("/oauth2/introspect"), {
+    return axios.post(
+      this.joinPath("/oauth2/introspect"),
       body,
-      headers: {
-        "Accept":       "application/json",
-        "Content-Type": "application/x-www-form-urlencoded",
+      {
+        headers: {
+          "Accept":       "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        responseType: "json",
       },
-      method: "POST",
-    })
-      .then((res) => res.json());
+    )
+      .then((res) => res.data)
+      .catch((err) => {
+        if (err.response) {
+          throw err.response.data;
+        }
+
+        throw err;
+      });
   }
 
-  public async checkAliveStatus(): Promise<HealthStatus> {
-    return this.get<HealthStatus>("/health/alive");
+  public async checkAliveStatus(): Promise<string> {
+    return this.get<HealthStatus>("/health/alive")
+      .then((response) => response.status);
   }
 
-  public async checkReadinessStatus(): Promise<HealthStatus> {
-    return this.get<HealthStatus>("/health/ready");
+  public async checkReadinessStatus(): Promise<string> {
+    return this.get<HealthStatus>("/health/ready")
+      .then((response) => response.status);
   }
 
-  public async getVersion(): Promise<Version> {
-    return this.get<Version>("/version");
+  public async getVersion(): Promise<string> {
+    return this.get<Version>("/version")
+      .then((response) => response.version);
   }
 
   private async get<T>(path: string): Promise<T> {
-    return fetch(this.joinPath(path), {
-      headers: {
-        Accept: "application/json",
+    return axios.get(
+      this.joinPath(path),
+      {
+        headers: {
+          Accept: "application/json",
+        },
+        responseType: "json",
       },
-      method: "GET",
-    })
-      .then((res) => res.json());
+    )
+      .then((res) => res.data)
+      .catch((err) => {
+        if (err.response) {
+          throw err.response.data;
+        }
+
+        throw err;
+      });
   }
 
   private async post<T>(path: string, body?: object): Promise<T> {
-    return fetch(this.joinPath(path), {
-      body: JSON.stringify(body),
-      headers: {
-        "Accept":       "application/json",
-        "Content-Type": "application/json",
+    return axios.post(
+      this.joinPath(path),
+      {
+        body: JSON.stringify(body),
+        headers: {
+          "Accept":       "application/json",
+          "Content-Type": "application/json",
+        },
+        responseType: "json",
       },
-      method: "POST",
-    })
-      .then((res) => res.json());
+    )
+      .then((res) => res.data)
+      .catch((err) => {
+        if (err.response) {
+          throw err.response.data;
+        }
+
+        throw err;
+      });
   }
 
   private async put<T>(path: string, body?: object): Promise<T> {
-    return fetch(this.joinPath(path), {
-      body: JSON.stringify(body),
-      headers: {
-        "Accept":       "application/json",
-        "Content-Type": "application/json",
+    return axios.put(
+      this.joinPath(path),
+      {
+        body: JSON.stringify(body),
+        headers: {
+          "Accept":       "application/json",
+          "Content-Type": "application/json",
+        },
+        responseType: "json",
       },
-      method: "PUT",
-    })
-      .then((res) => res.json());
+    )
+      .then((res) => res.data)
+      .catch((err) => {
+        if (err.response) {
+          throw err.response.data;
+        }
+
+        throw err;
+      });
   }
 
   private async delete<T>(path: string): Promise<T> {
-    return fetch(this.joinPath(path), {
-      headers: {
-        Accept: "application/json",
+    return axios.delete(
+      this.joinPath(path),
+      {
+        headers: {
+          Accept: "application/json",
+        },
+        responseType: "json",
       },
-      method: "DELETE",
-    })
-      .then((res) => res.json());
+    )
+      .then((res) => res.data)
+      .catch((err) => {
+        if (err.response) {
+          throw err.response.data;
+        }
+
+        throw err;
+      });
   }
 
   private joinPath(path: string) {

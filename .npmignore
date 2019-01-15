@@ -1,17 +1,18 @@
-# Node files
-node_modules/
+# Source files
+src/
+
+# Test files
+__tests__
 
 # Yarn files
 yarn-debug.log*
 yarn-error.log*
+yarn.lock
 
 # NPM files
-npm-debug.log*
-package-lock.json
 npm-shrinkwrap.json
 
 # Compiled files
-dist/
 docs/
 
 # Code coverage
