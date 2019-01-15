@@ -21,10 +21,8 @@
   },
   "dependencies": {
     "@types/node": "^10.12.18",
-    "@types/node-fetch": "^2.1.4",
     "@types/url-join": "^4.0.0",
     "axios": "^0.18.0",
-    "node-fetch": "^2.3.0",
     "url-join": "^4.0.0"
   },
   "devDependencies": {
