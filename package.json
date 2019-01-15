@@ -1,6 +1,6 @@
 {
   "name": "typehydra",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.1-alpha.1",
   "description": "Unofficial TypeScript-based ORY Hydra client.",
   "repository": "https://github.com/devmattrick/typedhydra.git",
   "author": "Matthew McCune <contact@matthew.cx>",
