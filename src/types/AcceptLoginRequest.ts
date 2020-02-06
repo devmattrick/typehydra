@@ -49,4 +49,12 @@ export default interface AcceptLoginRequest {
    * Subject is the user ID of the end-user that authenticated.
    */
   subject?: string;
+  
+  /**
+   * Context is an optional object which can hold arbitrary data. The data will
+   * be made available when fetching the consent request under the context
+   * field. This is useful in scenarios where login and consent endpoints
+   * share data.
+   */
+  context?: object;
 }
